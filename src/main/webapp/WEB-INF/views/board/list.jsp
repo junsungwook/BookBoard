@@ -17,7 +17,7 @@
 	<div class="col-lg-12">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				Board List Page
+				Board List Page(${total} )
 				<button id='regBtn' type="button" class="btn btn-xs pull-right">Register
 					New Board</button>
 			</div>
@@ -55,7 +55,7 @@
 				<div class='row'>
 					<div class="col-lg-12">
 
-						<form id='searchForm' action="/board/list" method='get'>
+						<form id='searchForm' action="/book/board/list" method='get'>
 							<select name='type'>
 								<option value=""
 									<c:out value="${pageMaker.cri.type == null?'selected':''}"/>>--</option>
@@ -74,7 +74,8 @@
 								<option value="TWC"
 									<c:out value="${pageMaker.cri.type eq 'TWC'?'selected':''}"/>>제목
 									or 내용 or 작성자</option>
-							</select> <input type='text' name='keyword'
+							</select> 
+							<input type='text' name='keyword'
 								value='<c:out value="${pageMaker.cri.keyword}"/>' /> <input
 								type='hidden' name='pageNum'
 								value='<c:out value="${pageMaker.cri.pageNum}"/>' /> <input
@@ -126,7 +127,7 @@
 				<!--  end Pagination -->
 			</div>
 
-			<form id='actionForm' action="/board/list" method='get'>
+			<form id='actionForm' action="/book/board/list" method='get'>
 				<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum}'>
 				<input type='hidden' name='amount' value='${pageMaker.cri.amount}'>
 
@@ -205,7 +206,7 @@
 
 						$("#regBtn").on("click", function() {
 
-							self.location = "/board/register";
+							self.location = "/book/board/register";
 
 						});
 
@@ -236,7 +237,7 @@
 																	"href")
 															+ "'>");
 											actionForm.attr("action",
-													"/board/get");
+													"/book/board/get");
 											actionForm.submit();
 
 										});

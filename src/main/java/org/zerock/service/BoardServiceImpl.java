@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.zerock.domain.BoardVO;
+import org.zerock.domain.Criteria;
 import org.zerock.mapper.BoardMapper;
 
 @Service
@@ -26,32 +27,53 @@ public class BoardServiceImpl implements BoardService{
 
 	@Override
 	public BoardVO get(Long bno) {
-		// TODO Auto-generated method stub
-		return null;
+		return mapper.get(bno);
 	}
 
 	@Override
 	public boolean modify(BoardVO board) {
 		// TODO Auto-generated method stub
-		return false;
+		int num = mapper.update(board);
+		boolean flag = false;
+		if(num==1) {
+			flag=true;
+		}
+		return flag;
 	}
 
 	@Override
 	public boolean remove(Long bno) {
-		// TODO Auto-generated method stub
-		return false;
+		int num = mapper.delete(bno);
+		boolean flag = false;
+		if(num==1) {
+			flag=true;
+		}
+		return flag;
 	}
 
 	@Override
 	public List<BoardVO> getList() {
 		// TODO Auto-generated method stub
-		return null;
+		return mapper.getList();
 	}
 
 	@Override
 	public int getTotal() {
 		// TODO Auto-generated method stub
-		return 0;
+		 return mapper.getTotal();
 	}
+
+	@Override
+	public List<BoardVO> getList(Criteria cri) {
+		// TODO Auto-generated method stub
+		System.out.println("서비스 페이지에서의 타입 : "+cri.getType());
+		return mapper.getListWithPaging(cri);
+	}
+
+	public int getTotalCount(Criteria cri) {
+		// TODO Auto-generated method stub
+		return mapper.getTotalCount(cri);
+	}
+
 
 }

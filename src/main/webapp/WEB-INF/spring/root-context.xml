@@ -29,6 +29,7 @@
 		
 		<!-- servlet에 는 zerock.book까지만 참조한다고 적혀있기째문에 여기나 servlet에서  서비스 폴더를 참조 할 수 있도록 여기서 설정해준다 -->
 		<context:component-scan base-package="org.zerock.service"/>
+		<context:component-scan base-package="org.zerock.domain"/>
 		
 		<!-- transaction -->
 		<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">

@@ -6,8 +6,15 @@ public class BoardVO {
 	private Long bno;
 	private String title,content,writer;
 	private Date regdate,updateDate;
+	private int ReplyCnt;
 	public Long getBno() {
 		return bno;
+	}
+	public int getReplyCnt() {
+		return ReplyCnt;
+	}
+	public void setReplyCnt(int replyCnt) {
+		ReplyCnt = replyCnt;
 	}
 	public void setBno(Long bno) {
 		this.bno = bno;

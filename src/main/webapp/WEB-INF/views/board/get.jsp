@@ -56,7 +56,7 @@
 </form> --%>
 
 
-<form id='operForm' action="/boad/modify" method="get">
+<form id='operForm' action="/book/board/modify" method="get">
   <input type='hidden' id='bno' name='bno' value='<c:out value="${board.bno}"/>'>
   <input type='hidden' name='pageNum' value='<c:out value="${cri.pageNum}"/>'>
   <input type='hidden' name='amount' value='<c:out value="${cri.amount}"/>'>
@@ -139,12 +139,13 @@
               </div>
       
             </div>
-<div class="modal-footer">
-        <button id='modalModBtn' type="button" class="btn btn-warning">Modify</button>
-        <button id='modalRemoveBtn' type="button" class="btn btn-danger">Remove</button>
-        <button id='modalRegisterBtn' type="button" class="btn btn-primary">Register</button>
-        <button id='modalCloseBtn' type="button" class="btn btn-default">Close</button>
-      </div>          </div>
+			  <div class="modal-footer">
+		        <button id='modalModBtn' type="button" class="btn btn-warning">Modify</button>
+		        <button id='modalRemoveBtn' type="button" class="btn btn-danger">Remove</button>
+		        <button id='modalRegisterBtn' type="button" class="btn btn-primary">Register</button>
+		        <button id='modalCloseBtn' type="button" class="btn btn-default">Close</button>
+		      </div>          
+		  </div>
           <!-- /.modal-content -->
         </div>
         <!-- /.modal-dialog -->
@@ -153,7 +154,7 @@
 
 
 
-<script type="text/javascript" src="/resources/js/reply.js"></script>
+<script type="text/javascript" src="/book/resources/js/reply.js"></script>
 
 <script>
 
@@ -488,7 +489,7 @@ $(document).ready(function() {
   
   $("button[data-oper='modify']").on("click", function(e){
     
-    operForm.attr("action","/board/modify").submit();
+    operForm.attr("action","/book/board/modify").submit();
     
   });
   
@@ -496,7 +497,7 @@ $(document).ready(function() {
   $("button[data-oper='list']").on("click", function(e){
     
     operForm.find("#bno").remove();
-    operForm.attr("action","/board/list")
+    operForm.attr("action","/book/board/list")
     operForm.submit();
     
   });  
